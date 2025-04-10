@@ -18,7 +18,7 @@ def load_location_notes(tsv_filepath):
 def extract_journal_dates(journal_text):
     """Examines Dr. Reed's journal content"""
 
-    pattern = r"\d\d/\d\d/\d\d"
+    pattern = r"\d\d/\d\d/\d\d\d\d"
     journal_dates = re.findall(pattern, journal_text)
     if journal_dates:
         return journal_dates
@@ -28,7 +28,7 @@ def extract_journal_dates(journal_text):
 def extract_secret_codes(journal_text):
     """Extracts secret codes!"""
 
-    pattern = r"\w{5}-\d\d/\d\d/\d\d"
+    pattern = r"\w{5}-\d\d/\d\d/\d\d\d\d"
     journal_dates = re.findall(pattern, journal_text)
     if journal_dates:
         return journal_dates

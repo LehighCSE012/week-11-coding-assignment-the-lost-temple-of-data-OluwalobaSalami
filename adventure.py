@@ -20,10 +20,14 @@ def extract_journal_dates(journal_text):
 
     pattern = r"\d\d/\d\d/\d\d\d\d"
     journal_dates = re.findall(pattern, journal_text)
-    if journal_dates:
-        return journal_dates
-    else:
-        return []
+    valid_dates = []
+    for date in journal_dates:
+        month, day, year = date.split("/")
+        # Basic validation of month and day ranges
+        if 1 <= int(month) <= 12 and 1 <= int(day) <= 31 and year != "9999":
+            valid_dates.append(date)
+
+    return valid_dates
 
 def extract_secret_codes(journal_text):
     """Extracts secret codes!"""
